@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:annotation-config />
+
+	<bean id="memberDao" class="spring.MemberDao">
+	</bean>
+
+	<bean id="memberRegSvc" class="spring.MemberRegisterService">
+	</bean>
+
+	<bean id="memberPrinter" class="spring.MemberPrinter">
+	</bean>
+
+	<bean id="infoPrinter" class="spring.MemberInfoService">
+	</bean>
+	
+	<bean id="printer1" class="spring.MemberPrinter">
+		<qualifier value="sysout"></qualifier>
+	</bean>
+	
+	<!-- qualifier의 값이 sysout인 빈 없음 -->
+	<bean id="printer1" class="spring.MemberPrinter" />
+	<bean id="printer2" class="spring.MemberPrinter" />
+	
+	<!-- @Qualifier의 값으로 "sysout" 사용 -->
+	<bean id="infoPrinter" class="spring.MemberInfoPrinter" />
+
+</beans>
